@@ -27,3 +27,4 @@ while true
         hive.transfer(stabilizer_account,dao_account,hive_bal,””)
     else if (a.vesting_withdraw_rate == 0 and a.vesting_shares > 0.0002
         hive.withdraw_vesting(stabilizer_account,a.vesting_shares)
+    sleep("30 seconds")
