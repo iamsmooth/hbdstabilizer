@@ -3,7 +3,7 @@
 
 hive = get_hive_api()
 exchange = get_external_exchange_api();
-stabilzer_account = “hbdstabilizer”
+stabilizer_account = “hbdstabilizer”
 dao_account = “hive.fund”
 
 while true
@@ -15,7 +15,9 @@ while true
     reward_hive = a.reward_hive_balance
     reward_vests = a.reward_vesting_balance
 
-    if reward_hbd > 0.1 or reward_hive > 0.1 or reward_vests > 200
+    if random_integer(10) > 0
+      // do nothing
+    else if reward_hbd > 0.1 or reward_hive > 0.1 or reward_vests > 200
         hive.claim_reward_balance(stabilizer_account,reward_hive,reward_hbd,reward_vests)
     else if hbd_bal > 0.1
         if exchange.get_price(“HIVE”) < best_offer.real_price
@@ -26,4 +28,4 @@ while true
         hive.transfer(stabilizer_account,dao_account,hive_bal,””)
     else if (a.vesting_withdraw_rate == 0 and a.vesting_shares > 200
         hive.withdraw_vesting(stabilizer_account,a.vesting_shares)
-    sleep("30 seconds")
+    sleep("3 seconds")
