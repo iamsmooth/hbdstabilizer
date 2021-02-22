@@ -15,7 +15,7 @@ while true
     reward_hive = a.reward_hive_balance
     reward_vests = a.reward_vesting_balance
 
-    if random_integer(10) > 0
+    if random_integer(30) > 0
       // do nothing
     else if reward_hbd > 0.1 or reward_hive > 0.1 or reward_vests > 200
         hive.claim_reward_balance(stabilizer_account,reward_hive,reward_hbd,reward_vests)
