@@ -10,6 +10,7 @@ while true
     a = hive.get_account(stabilizer_account)
     hive_bal = a.balance
     hbd_bal = a.hbd_balance
+    print_rate = hive.get_dynamic_global_properties().hbd_print_rate
     order_book = hive.get_order_book(1)
     best_offer = order_book.asks[0]
     best_bid = order_book.bids[0]
@@ -26,7 +27,7 @@ while true
         else
             hive.create_order(stabilizer_account,hbd_bal+" HBD",floor(hbd_bal*1000*best_offer.base/best_offer.quote)/1000+" HIVE",false,3)
     else if hive_bal > 0.1
-        if market_price > best_bid.real_price
+        if print_rate < 10000 or market_price > best_bid.real_price
             hive.transfer(stabilizer_account,dao_account,hive_bal,””)
         else
             hive.create_order(stabilizer_account,hive_bal+" HIVE",floor(hive_bal*1000*best_bid.quote/best_bid.base)/1000+" HBD",false,3)
