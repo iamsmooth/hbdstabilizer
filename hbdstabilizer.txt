@@ -30,7 +30,7 @@ while true
         if print_rate < 10000 or market_price > best_bid.real_price
             hive.transfer(stabilizer_account,dao_account,hive_bal,””)
         else
-            hive.create_order(stabilizer_account,hive_bal+" HIVE",floor(hive_bal*1000*best_bid.quote/best_bid.base)/1000+" HBD",false,3)
+            hive.create_order(stabilizer_account,hive_bal+" HIVE",floor(hive_bal*1000*best_bid.base/best_bid.quote)/1000+" HBD",false,3)
     else if reward_hbd > 0.1 or reward_hive > 0.1 or reward_vests > 200
         hive.claim_reward_balance(stabilizer_account,reward_hive,reward_hbd,reward_vests)
     else if (a.vesting_withdraw_rate == 0 and a.vesting_shares > 200
