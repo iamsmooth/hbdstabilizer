@@ -19,7 +19,7 @@ while true
     reward_vests = a.reward_vesting_balance
     market_price = hive_bal > 0.1 or hdb_bal > 0.1 ? exchange.get_price(“HIVE”) : 0
 
-    if random_integer(30) > 0
+    if random_integer(25) > 0
       // do nothing
     else if hbd_bal > 0.1
         if market_price < best_offer.real_price
