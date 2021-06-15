@@ -25,7 +25,10 @@ while true
       // wide market spread, wait for better
     else if hbd_bal > 0.1
         if market_price < 1.01*best_offer.real_price
-            hive.transfer(stabilizer_account,dao_account,hbd_bal,””)
+            if market_price < 0.97*best_offer.real_price
+               hive.convert_hbd(stabilizer_account,hbd_bal)
+            else
+               hive.transfer(stabilizer_account,dao_account,hbd_bal,””)
         else
             hive.create_order(stabilizer_account,hbd_bal+" HBD",floor(hbd_bal*1000*best_offer.base/best_offer.quote)/1000+" HIVE",false,3)
     else if hive_bal > 0.1
