@@ -24,7 +24,7 @@ while true
     else if (best_offer-best_bid)/(best_offer+best_bid) > 0.01)
       // wide market spread, wait for better
     else if hbd_bal > 1
-        if market_price < 1.01*best_offer.real_price
+        if market_price < 1.005*best_offer.real_price
             if print_rate == 10000 and market_price < 1.00*best_offer.real_price
                hive.convert_hbd(stabilizer_account,hbd_bal)
             else
