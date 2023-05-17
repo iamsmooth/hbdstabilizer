@@ -1,5 +1,7 @@
 
 // Intended as pseudocode. Details such as type conversions, signing transactions, etc. are deliberately left out
+//
+// MIT License - see file LICENSE
 
 hive = get_hive_api()
 exchange = get_external_exchange_api();
